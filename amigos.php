@@ -26,10 +26,12 @@ if($_SESSION['usuario'] == NULL){
     $sentence->execute();
     $sentence2 = $gbd->prepare("SELECT * FROM registros WHERE id='".$iduserrecibe['id']."'");
     $sentence2->execute();
+    $sentence->execute();
     $nif = $sentence2->fetch(PDO::FETCH_ASSOC);
     $numnotif=$nif['notifreg'] + 1;
     $siria = $gbd->prepare("UPDATE registros SET notifreg='".$numnotif."' WHERE user='".$nif['user']."'");
     $siria->execute();
+    $sentence->execute();
     $gbd = NULL;
     header("Location: perfil.php?user=".$_GET['user']."");
     }else{
