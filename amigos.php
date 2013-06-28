@@ -11,7 +11,7 @@ if($_SESSION['usuario'] == NULL){
     $nero = $sentence4->fetch(PDO::FETCH_ASSOC);
     $sentencia = $gbd->prepare("SELECT id FROM registros WHERE user= ?");
     $sentencia->bindParam(1, $_GET['user']);
-    $sentencia->execute();
+    $sentencia->execute(); //Te vendría mejor esto
     $iduserrecibe = $sentencia->fetch(PDO::FETCH_ASSOC);
     $sentencia2 = $gbd->prepare("INSERT INTO amigos(iduserpide, iduserrecibe) VALUES(:iduserpide, :iduserrecibe)");
     $sentencia2->bindParam(':iduserpide', $_SESSION['id']);
