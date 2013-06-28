@@ -2,6 +2,7 @@
 include('pdo.php');
 session_start();
 if($_SESSION['usuario'] == NULL){
+    aaaaaaaaaaaaaaaah
     $gbd = NULL;
     header("Location: perfil.php?user=".$_GET['user']."");
 }else{
