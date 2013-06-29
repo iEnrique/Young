@@ -23,6 +23,7 @@ if($_SESSION['usuario'] == NULL){
     $sentence->bindParam(':iduser', $_SESSION['id']);
     $sentence->bindParam(':idusernot', $iduserrecibe['id']);
     $sentence->bindParam(':amigoperfil', $_SESSION['id']);
+    $sentence->execute();
     $sentence->bindParam(':razon', $razon);
     $sentence->execute();
     $sentence2 = $gbd->prepare("SELECT * FROM registros WHERE id='".$iduserrecibe['id']."'");
